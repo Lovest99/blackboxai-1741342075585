@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Smart Irrigation System</title>
+    <link rel="stylesheet" href="styles/dashboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="dashboard-container">
+        <nav class="top-nav">
+            <div class="nav-brand">Smart Irrigation</div>
+            <div class="nav-user">
+                <span id="userName">User</span>
+                <button id="logoutBtn" class="logout-btn">Logout</button>
+            </div>
+        </nav>
+
+        <main class="dashboard-content">
+            <section class="weather-card">
+                <h2>Weather Forecast</h2>
+                <div id="weather-info">
+                    <div class="weather-main">
+                        <img id="weather-icon" src="" alt="Weather icon">
+                        <div class="weather-temp">
+                            <span id="temperature">--°C</span>
+                            <span id="weather-description">Loading...</span>
+                        </div>
+                    </div>
+                    <div class="weather-details">
+                        <div class="weather-detail">
+                            <span class="label">Humidity</span>
+                            <span id="humidity">--%</span>
+                        </div>
+                        <div class="weather-detail">
+                            <span class="label">Rain Chance</span>
+                            <span id="rain-chance">--%</span>
+                        </div>
+                        <div class="weather-detail">
+                            <span class="label">Last Updated</span>
+                            <span id="last-updated">--:--</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="moisture-card">
+                <h2>Soil Moisture Levels</h2>
+                <div class="sensor-grid">
+                    <div class="sensor-zone">
+                        <h3>Zone 1</h3>
+                        <div class="moisture-gauge">
+                            <div class="gauge-body">
+                                <div class="gauge-fill" id="gauge1"></div>
+                                <div class="gauge-cover">
+                                    <span id="moisture1">--%</span>
+                                </div>
+                            </div>
+                            <div class="moisture-status" id="status1">Status: Checking...</div>
+                        </div>
+                        <button class="irrigation-btn" id="irrigate1">
+                            Start Irrigation
+                        </button>
+                    </div>
+
+                    <div class="sensor-zone">
+                        <h3>Zone 2</h3>
+                        <div class="moisture-gauge">
+                            <div class="gauge-body">
+                                <div class="gauge-fill" id="gauge2"></div>
+                                <div class="gauge-cover">
+                                    <span id="moisture2">--%</span>
+                                </div>
+                            </div>
+                            <div class="moisture-status" id="status2">Status: Checking...</div>
+                        </div>
+                        <button class="irrigation-btn" id="irrigate2">
+                            Start Irrigation
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="settings-card">
+                <h2>System Settings</h2>
+                <div class="settings-grid">
+                    <div class="setting-item">
+                        <label class="switch-label">
+                            <span>Automatic Mode</span>
+                            <label class="switch">
+                                <input type="checkbox" id="autoMode">
+                                <span class="slider"></span>
+                            </label>
+                        </label>
+                        <p class="setting-description">Enable automatic irrigation based on moisture levels and weather</p>
+                    </div>
+                    
+                    <div class="setting-item">
+                        <label for="moistureThreshold">Moisture Threshold (%)</label>
+                        <input type="range" id="moistureThreshold" min="20" max="80" value="40">
+                        <span id="thresholdValue">40%</span>
+                        <p class="setting-description">Irrigation starts when moisture falls below this level</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script src="js/weather.js"></script>
+    <script src="js/sensors.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>
